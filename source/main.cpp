@@ -3,8 +3,30 @@
 #include"InputProcessing.h"
 #include"MatSet.h"
 #include"Matrix.h"
+#include<fstream>
 #include<map>
 #include<string>
+
+void init();
+
+bool work();
+
+int main(){
+	init();
+
+	while(work());
+	return 0;
+}
+
+void init(){
+	ifstream initInfo;
+	initInfo.open("DATA\\Launch\\LaunchInformation.ini");
+	string infoS;
+	while(getline(initInfo, infoS)){
+		cout<<infoS<<endl;
+	}
+	initInfo.close();
+}
 
 bool work(){
 	printf(">> ");
@@ -40,10 +62,4 @@ bool work(){
 
 	return true;
 }
-
-int main(){
-	while(work());
-	return 0;
-}
-
 
