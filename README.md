@@ -6,9 +6,9 @@
 
 其实就是个能进行矩阵加减乘除求逆的小工具，以后可能会不断添加功能。
 
-MATLAB当然能做得更好，但是如果只是为了写线代作业的话一个几M的小exe就够了不是么。
+相比MATLAB，最大的优点是使用作业常用的分数作为矩阵元素，而不是工程常用的浮点数。
 
-
+况且，如果只是为了写线代作业的话一个几M的小exe就够了不是么。
 
 # Matrix Calculation 
 
@@ -20,4 +20,6 @@ Use computer well, refuse to be a tool man.
 
 Actually, this is just a little tool that can make operation including matrix addition, subtraction, multiplication, division and inverse. More functions will be added later.
 
-MATLAB is surely better than this project. Nevertheless, if you just want to finish your homework, a little exe of few megabytes is really enough. Isn't it?
+Compared witch MATLAB, The most important advantage of MATCAL is that the elements of Matrices are fractions, which are used at homework more, but not floating point numbers, which are always used at engineering. 
+
+After all, if you just want to finish your homework, a little exe of few megabytes is really enough. Isn't it?
