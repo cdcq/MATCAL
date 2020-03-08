@@ -11,6 +11,10 @@ bool work(){
 
 	string inputS;
 	getline(cin, inputS);
+	if(inputS.length() == 0){
+		return true;
+	}
+
 	inputS = toLower(inputS);
 	if(matSet.set.count(inputS)){
 		matSet.set[inputS].print();

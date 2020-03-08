@@ -26,6 +26,10 @@ void Error::throwError(int errorInfo){
 	if(errorInfo == -203){
 		printf("矩阵列数不一致\n");
 	}
+
+	if(errorInfo == 0){
+		printf("不能除0！\n");
+	}
 }
 
 #endif
