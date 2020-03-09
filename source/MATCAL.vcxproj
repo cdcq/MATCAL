@@ -19,21 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HeaderFiles\ErrorProcessing.h" />
-    <ClInclude Include="HeaderFiles\Fraction.h" />
-    <ClInclude Include="HeaderFiles\InputProcessing.h" />
-    <ClInclude Include="HeaderFiles\LaunchInfo.h" />
-    <ClInclude Include="HeaderFiles\Matrix.h" />
-    <ClInclude Include="HeaderFiles\MatSet.h" />
+    <ClInclude Include="include\ErrorProcessing.h" />
+    <ClInclude Include="include\Fraction.h" />
+    <ClInclude Include="include\InputProcessing.h" />
+    <ClInclude Include="include\LaunchInfo.h" />
+    <ClInclude Include="include\main.h" />
+    <ClInclude Include="include\Matrix.h" />
+    <ClInclude Include="include\MatSet.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SourceFiles\ErrorProcessing.cpp" />
-    <ClCompile Include="SourceFiles\Fraction.cpp" />
-    <ClCompile Include="SourceFiles\InputProcessing.cpp" />
-    <ClCompile Include="SourceFiles\LaunchInfo.cpp" />
-    <ClCompile Include="SourceFiles\main.cpp" />
-    <ClCompile Include="SourceFiles\Matrix.cpp" />
-    <ClCompile Include="SourceFiles\MatSet.cpp" />
+    <ClCompile Include="src\ErrorProcessing.cpp" />
+    <ClCompile Include="src\Fraction.cpp" />
+    <ClCompile Include="src\InputProcessing.cpp" />
+    <ClCompile Include="src\LaunchInfo.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Matrix.cpp" />
+    <ClCompile Include="src\MatSet.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
