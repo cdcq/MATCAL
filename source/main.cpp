@@ -1,6 +1,7 @@
 
 #include"ErrorProcessing.h"
 #include"InputProcessing.h"
+#include"LaunchInfo.h"
 #include"MatSet.h"
 #include"Matrix.h"
 #include<fstream>
@@ -19,13 +20,7 @@ int main(){
 }
 
 void init(){
-	ifstream initInfo;
-	initInfo.open("DATA\\Launch\\LaunchInformation.ini");
-	string infoS;
-	while(getline(initInfo, infoS)){
-		cout<<infoS<<endl;
-	}
-	initInfo.close();
+	launchInfo.printInfo();
 }
 
 bool work(){
