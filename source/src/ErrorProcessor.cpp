@@ -1,5 +1,5 @@
 
-#include"../include/ErrorProcessing.h"
+#include"../include/ErrorProcessor.h"
 
 Error error;
 
@@ -10,6 +10,9 @@ void Error::throwError(int errorInfo) {
 		printf("键入help来获取帮助\n");
 	}
 
+	if (errorInfo == -200) {
+		printf("矩阵名不存在\n");
+	}
 	if (errorInfo == -201) {
 		printf("矩阵名已存在\n");
 	}
@@ -18,6 +21,10 @@ void Error::throwError(int errorInfo) {
 	}
 	if (errorInfo == -203) {
 		printf("矩阵列数不一致\n");
+	}
+
+	if (errorInfo == -3) {
+		printf("参数不合法\n");
 	}
 
 	if (errorInfo == 0) {

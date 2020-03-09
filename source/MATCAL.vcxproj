@@ -19,22 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\ErrorProcessing.h" />
+    <ClInclude Include="include\ErrorProcessor.h" />
+    <ClInclude Include="include\ExpressionCalculator.h" />
     <ClInclude Include="include\Fraction.h" />
-    <ClInclude Include="include\InputProcessing.h" />
+    <ClInclude Include="include\InputProcessor.h" />
     <ClInclude Include="include\LaunchInfo.h" />
     <ClInclude Include="include\main.h" />
     <ClInclude Include="include\Matrix.h" />
     <ClInclude Include="include\MatSet.h" />
+    <ClInclude Include="include\StringProcessor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ErrorProcessing.cpp" />
+    <ClCompile Include="src\ErrorProcessor.cpp" />
+    <ClCompile Include="src\ExpressionCalculator.cpp" />
     <ClCompile Include="src\Fraction.cpp" />
-    <ClCompile Include="src\InputProcessing.cpp" />
+    <ClCompile Include="src\InputProcessor.cpp" />
     <ClCompile Include="src\LaunchInfo.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\MatSet.cpp" />
+    <ClCompile Include="src\StringProcessor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

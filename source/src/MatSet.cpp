@@ -26,31 +26,17 @@ void MatSet::matInput(string matName) {
 			if (inputS[i] == ' ') {
 				continue;
 			}
-			else if (inputS[i] == '/') {
-				denFlag = 1;
-				temNum[1] = 0;
-			}
 			else if (inputS[i] == '-') {
 				minusFlag = -1;
 			}
-			else if (inputS[i] < '0' || inputS[i] >'9') {
+			else if (inputS[i] < '0' || inputS[i] > '9') {
 				error.throwError(-202);
 				return;
 			}
 			else {
-				temNum[denFlag] = temNum[denFlag] * 10 + inputS[i] - '0';
-				if (inputS[i + 1] == ' ' || i + 1 == inputS.length()) {
-					if (temNum[1] == 0) {
-						error.throwError(0);
-						return;
-					}
-					temCol++;
-					Fraction inputNum(temNum[0] * minusFlag, temNum[1]);
-					temMat.mat[temMat.n][temCol] = inputNum;
-					temNum[0] = 0;
-					temNum[1] = 1;
-					denFlag = 0;
-				}
+				Fraction inputNum = strProc.getFra(inputS, i, minusFlag);
+				temCol++;
+				temMat.mat[temMat.n][temCol] = inputNum;
 			}
 		}
 		if (temMat.m == 0) {

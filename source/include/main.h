@@ -1,15 +1,18 @@
 
-#include"../include/ErrorProcessing.h"
-#include"../include/Fraction.h"
-#include"../include/InputProcessing.h"
-#include"../include/LaunchInfo.h"
-#include"../include/Matrix.h"
-#include"../include/MatSet.h"
+#include"ErrorProcessor.h"
+#include"Fraction.h"
+#include"InputProcessor.h"
+#include"LaunchInfo.h"
+#include"Matrix.h"
+#include"MatSet.h"
 #include<map>
 #include<string>
 
 
 class Main {
+private:
+	StrProc strProc;
+
 public:
 
 	void init();

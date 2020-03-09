@@ -56,6 +56,23 @@ Matrix operator*(Matrix A, Fraction x) {
 	return x * A;
 }
 
+void Matrix::swapR(int row1, int row2) {
+	if (row1 == row2) {
+		return;
+	}
+	for (int i = 1; i <= m; i++) {
+		swap(mat[row1][i], mat[row2][i]);
+	}
+}
+void Matrix::swapC(int column1, int column2) {
+	if (column1 == column2) {
+		return;
+	}
+	for (int i = 1; i <= n; i++) {
+		swap(mat[i][column1], mat[i][column2]);
+	}
+}
+
 void Matrix::clear() {
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j <= m; j++)

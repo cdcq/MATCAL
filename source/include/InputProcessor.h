@@ -12,6 +12,10 @@ private:
 	string temp_help;
 	string temp_exit;
 	string temp_mat;
+	string temp_print;
+	string temp_inv;
+	string temp_swapr;
+	string temp_swapc;
 public:
 	string inputS;
 

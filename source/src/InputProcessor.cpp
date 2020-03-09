@@ -1,5 +1,5 @@
 
-#include"../include/InputProcessing.h"
+#include"../include/InputProcessor.h"
 
 Input input;
 
@@ -7,6 +7,10 @@ Input::Input() {
 	temp_help = "help";
 	temp_exit = "exit";
 	temp_mat = "mat ";
+	temp_print = "print ";
+	temp_inv = "inv ";
+	temp_swapr = "swapr ";
+	temp_swapc = "swapc ";
 }
 
 bool Input::cmpPre(string tempS, string cmpS) {
@@ -30,6 +34,18 @@ int Input::inputAnalyse(string inputS) {
 	}
 	else if (cmpPre(inputS, temp_mat)) {
 		return 2;
+	}
+	else if (cmpPre(inputS, temp_print)) {
+		return 3;
+	}
+	else if (cmpPre(inputS, temp_inv)) {
+		return 4;
+	}
+	else if (cmpPre(inputS, temp_swapr)) {
+		return 5;
+	}
+	else if (cmpPre(inputS, temp_swapc)) {
+		return 6;
 	}
 
 	return -1;

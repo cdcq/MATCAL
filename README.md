@@ -10,6 +10,8 @@
 
 况且，如果只是为了写线代作业的话一个几M的小exe就够了不是么。
 
+详细的使用方法请见《使用文档》。
+
 # Matrix Calculation 
 
 ( Linear algebra homework helper )
