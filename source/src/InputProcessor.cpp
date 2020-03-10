@@ -11,6 +11,9 @@ Input::Input() {
 	temp_inv = "inv ";
 	temp_swapr = "swapr ";
 	temp_swapc = "swapc ";
+	temp_mul = "mul ";
+	temp_add = "add ";
+	temp_sub = "sub ";
 }
 
 bool Input::cmpPre(string tempS, string cmpS) {
@@ -46,6 +49,15 @@ int Input::inputAnalyse(string inputS) {
 	}
 	else if (cmpPre(inputS, temp_swapc)) {
 		return 6;
+	}
+	else if (cmpPre(inputS, temp_mul)) {
+		return 7;
+	}
+	else if (cmpPre(inputS, temp_add)) {
+		return 8;
+	}
+	else if (cmpPre(inputS, temp_sub)) {
+		return 9;
 	}
 
 	return -1;

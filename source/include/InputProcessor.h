@@ -16,6 +16,9 @@ private:
 	string temp_inv;
 	string temp_swapr;
 	string temp_swapc;
+	string temp_mul;
+	string temp_add;
+	string temp_sub;
 public:
 	string inputS;
 

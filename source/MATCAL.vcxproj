@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ErrorProcessor.h" />
-    <ClInclude Include="include\ExpressionCalculator.h" />
     <ClInclude Include="include\Fraction.h" />
     <ClInclude Include="include\InputProcessor.h" />
     <ClInclude Include="include\LaunchInfo.h" />
@@ -32,7 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErrorProcessor.cpp" />
-    <ClCompile Include="src\ExpressionCalculator.cpp" />
     <ClCompile Include="src\Fraction.cpp" />
     <ClCompile Include="src\InputProcessor.cpp" />
     <ClCompile Include="src\LaunchInfo.cpp" />

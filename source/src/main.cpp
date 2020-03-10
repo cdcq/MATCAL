@@ -32,6 +32,9 @@ bool Main::work() {
 		return false;
 	}
 	else if (inputInfo == 1) {
+		printf("详细的使用方法请见《使用文档》\n");
+		printf("（还没想好怎么写help = =b）\n");
+		return true;
 	}
 	else if (inputInfo == 2) {
 		inputS.erase(0, 4);
@@ -87,9 +90,49 @@ bool Main::work() {
 		}
 
 	}
+	else if (inputInfo == 7 || inputInfo == 8 || inputInfo == 9) {
+		inputS.erase(0, 4);
+		int temParSet[7] = { 0, 1, 0, 1, 0, -1, 0 };
+		if (!lexAna.RecPar(inputS, temParSet, 7)) {
+			error.throwError(-3);
+			return true;
+		}
+		
+		unsigned pos = 0;
+		string matName1 = strProc.getStr(inputS, pos);
+		string matName2 = strProc.getStr(inputS, pos);
+		string matName3 = strProc.getStr(inputS, pos);
+
+		if (matSet.set.count(matName1) != 1) {
+			Matrix temMat;
+			matSet.set[matName1] = temMat;
+		}
+		if (matSet.set.count(matName2) != 1) {
+			error.throwError(-200);
+			return true;
+		}
+		if (matSet.set.count(matName3) != 1) {
+			error.throwError(-200);
+			return true;
+		}
+
+		try {
+			if (inputInfo == 7) {
+				matSet.set[matName1] = matSet.set[matName2] * matSet.set[matName3];
+			}
+			else if (inputInfo == 8) {
+				matSet.set[matName1] = matSet.set[matName2] + matSet.set[matName3];
+			}
+			else if (inputInfo == 9) {
+				matSet.set[matName1] = matSet.set[matName2] - matSet.set[matName3];
+			}
+		}
+		catch(int errorInfo){
+			error.throwError(errorInfo);
+		}
+	}
 	else {
 		error.throwError(-1);
-		//int exprInfo = exprCalc.cal(inputS);
 		return true;
 	}
 

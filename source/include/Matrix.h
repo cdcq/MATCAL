@@ -24,6 +24,8 @@ public:
 	friend Matrix operator*(Matrix A, Matrix B);
 	friend Matrix operator*(Fraction x, Matrix A);
 	friend Matrix operator*(Matrix A, Fraction x);
+	friend Matrix operator+(Matrix A, Matrix B);
+	friend Matrix operator-(Matrix A, Matrix B);
 
 	void swapR(int row1, int row2);
 	void swapC(int column1, int column2);

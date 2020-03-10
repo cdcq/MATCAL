@@ -4,9 +4,20 @@
 MatSet matSet;
 
 void MatSet::matInput(string matName) {
-	if (matSet.set.count(matName)) {
-		error.throwError(-201);
-		return;
+	if (matSet.set.count(matName) == 1) {
+		string inputS;
+		do {
+			printf("矩阵已存在，确定重新输入吗？（Y/N）\n");
+			getline(cin, inputS);
+			if (inputS[0] == 'Y')  inputS[0] = 'y';
+			if (inputS[0] == 'N')  inputS[0] = 'n';
+		} while (inputS.length() == 0 && (inputS[0] == 'y' || inputS[0] == 'n'));
+		if (inputS[0] == 'n') {
+			return;
+		}
+		else {
+			matSet.set.erase(matName);
+		}
 	}
 	Matrix temMat;
 	temMat.name = matName;

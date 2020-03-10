@@ -15,16 +15,14 @@ Fraction StrProc::getFra(string Str, unsigned int& pos) {
 			temNum[1] = 0;
 		}
 		else if (!isdigit(Str[pos])) {
-			pos = -1;
-			return fra_0;
+			throw -3;
 		}
 		else {
 			temNum[denFlag] = temNum[denFlag] * 10 + Str[pos] - '0';
 		}
 	}
 	if (temNum[1] == 0) {
-		pos = -2;
-		return fra_0;
+		throw 0;
 	}
 	Fraction getedNum(temNum[0], temNum[1]);
 	return getedNum;
@@ -37,8 +35,7 @@ int StrProc::getInt(string Str, unsigned int& pos) {
 			break;
 		}
 		else if (!isdigit(Str[pos])) {
-			pos = -1;
-			return temNum;
+			throw -3;
 		}
 		else {
 			temNum = temNum * 10 + Str[pos] - '0';
@@ -54,8 +51,7 @@ string StrProc::getStr(string Str, unsigned int& pos) {
 			break;
 		}
 		else if (!islower(Str[pos])) {
-			pos = -1;
-			return temStr;
+			throw -3;
 		}
 		else {
 			temStr.append(1, Str[pos]);

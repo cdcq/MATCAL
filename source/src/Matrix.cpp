@@ -35,8 +35,9 @@ Matrix::Matrix(int dim, Fraction diag[]) {
 Matrix operator*(Matrix A, Matrix B) {
 	Matrix C(A.n, B.m);
 	if (A.m != B.n) {
-		C.errInfo = 1;
-		return C;
+		throw -204;
+		//C.errInfo = 1;
+		//return C;
 	}
 
 	for (int i = 1; i <= A.n; i++)
@@ -54,6 +55,30 @@ Matrix operator*(Fraction x, Matrix A) {
 }
 Matrix operator*(Matrix A, Fraction x) {
 	return x * A;
+}
+Matrix operator+(Matrix A, Matrix B) {
+	if (A.n != B.n || A.m != B.m) {
+		throw -205;
+	}
+	Matrix C(A.n, A.m);
+	for (int i = 1; i <= A.n; i++) {
+		for (int j = 1; j <= A.m; j++) {
+			C.mat[i][j] = A.mat[i][j] + B.mat[i][j];
+		}
+	}
+	return C;
+}
+Matrix operator-(Matrix A, Matrix B) {
+	if (A.n != B.n || A.m != B.m) {
+		throw - 205;
+	}
+	Matrix C;
+	for (int i = 1; i <= A.n; i++) {
+		for (int j = 1; j <= A.m; j++) {
+			C.mat[i][j] = A.mat[i][j] - B.mat[i][j];
+		}
+	}
+	return C;
 }
 
 void Matrix::swapR(int row1, int row2) {
