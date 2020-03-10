@@ -63,40 +63,26 @@ bool Main::work() {
 	}
 	else if (inputInfo == 5 || inputInfo == 6) {
 		inputS.erase(0, 6);
+		int temParSet[7] = { 0, 1, 0, 2, 0, -2, 0 };
+		if (!lexAna.RecPar(inputS, temParSet, 7)) {
+			error.throwError(-3);
+			return true;
+		}
+
 		unsigned int pos = 0;
-		for (; pos < inputS.length() && islower(inputS[pos]); pos++);
-		string matName = inputS.substr(0, pos);
+		string matName = strProc.getStr(inputS, pos);
 		if (matSet.set.count(matName) != 1) {
 			error.throwError(-200);
 			return true;
 		}
-		if (pos == inputS.length() || inputS[pos] != ' ') {
-			error.throwError(-3);
-			return true;
-		}
-		inputS.erase(0, pos + 1);
-		pos = 0;
 
-		int num1 = strProc.getInt(inputS, pos, 1);
-		if (pos == -1) {
-			error.throwError(-3);
-			return true;
-		}
-		int num2 = strProc.getInt(inputS, pos, 1);
-		if (pos == -1) {
-			error.throwError(-3);
-			return true;
-		}
-		for (; pos <= inputS.length() && inputS[pos] == ' '; pos++);
-		if (pos != inputS.length()) {
-			error.throwError(-3);
-			return true;
-		}
+		int num1 = strProc.getInt(inputS, pos);
+		int num2 = strProc.getInt(inputS, pos);
 
 		if (inputInfo == 5) {
 			matSet.set[matName].swapR(num1, num2);
 		}
-		else if(inputInfo) {
+		else if(inputInfo == 6) {
 			matSet.set[matName].swapC(num1, num2);
 		}
 

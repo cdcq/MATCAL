@@ -29,12 +29,13 @@ void MatSet::matInput(string matName) {
 			else if (inputS[i] == '-') {
 				minusFlag = -1;
 			}
-			else if (inputS[i] < '0' || inputS[i] > '9') {
+			else if (!isdigit(inputS[i])) {
 				error.throwError(-202);
 				return;
 			}
 			else {
-				Fraction inputNum = strProc.getFra(inputS, i, minusFlag);
+				Fraction inputNum = strProc.getFra(inputS, i);
+				inputNum.a *= minusFlag;
 				temCol++;
 				temMat.mat[temMat.n][temCol] = inputNum;
 			}

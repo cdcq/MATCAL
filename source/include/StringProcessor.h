@@ -10,8 +10,9 @@ using namespace std;
 class StrProc {
 public:
 
-	Fraction getFra(string Str, unsigned int &pos, int minusFlag);
-	int getInt(string Str, unsigned int& pos, int minusFlag);
+	Fraction getFra(string Str, unsigned int &pos);
+	int getInt(string Str, unsigned int& pos);
+	string getStr(string Str, unsigned int& pos);
 };
 
 #endif

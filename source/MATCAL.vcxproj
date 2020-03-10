@@ -24,6 +24,7 @@
     <ClInclude Include="include\Fraction.h" />
     <ClInclude Include="include\InputProcessor.h" />
     <ClInclude Include="include\LaunchInfo.h" />
+    <ClInclude Include="include\LexicalAnalyzer.h" />
     <ClInclude Include="include\main.h" />
     <ClInclude Include="include\Matrix.h" />
     <ClInclude Include="include\MatSet.h" />
@@ -35,6 +36,7 @@
     <ClCompile Include="src\Fraction.cpp" />
     <ClCompile Include="src\InputProcessor.cpp" />
     <ClCompile Include="src\LaunchInfo.cpp" />
+    <ClCompile Include="src\LexicalAnalyzer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\MatSet.cpp" />
