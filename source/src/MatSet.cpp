@@ -7,7 +7,7 @@ void MatSet::matInput(string matName) {
 	if (matSet.set.count(matName) == 1) {
 		string inputS;
 		do {
-			printf("矩阵已存在，确定重新输入吗？（Y/N）\n");
+			printf("矩阵已存在，确定重新输入吗？\n（Y/N）");
 			getline(cin, inputS);
 			if (inputS[0] == 'Y')  inputS[0] = 'y';
 			if (inputS[0] == 'N')  inputS[0] = 'n';

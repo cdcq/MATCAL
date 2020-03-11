@@ -108,6 +108,41 @@ void Matrix::turn() {
 	mat = temMat.mat;
 	swap(n, m);
 }
+int Matrix::invPair(vector<int> vec) {
+	int count = 0;
+	for (unsigned int i = 0; i < vec.size(); i++) {
+		for (unsigned int j = i + 1; j < vec.size(); j++) {
+			if (vec[i] > vec[j]) {
+				count++;
+			}
+		}
+	}
+	return count;
+}
+Fraction Matrix::det() {
+	if (m != n) {
+		throw - 206;
+	}
+	vector<int> perm;
+	int mul = 1;
+	for (int i = 1; i <= n; i++) {
+		perm.push_back(i);
+		mul = mul * i;
+	}
+	Fraction detSum;
+	for (int k = 1; k <= mul; k++) {
+		Fraction temMul(1, 1);
+		if (invPair(perm) & 1) {
+			temMul.a = -1;
+		}
+		for (int i = 1; i <= n; i++) {
+			temMul = temMul * mat[i][perm[i - 1]];
+		}
+		detSum = detSum + temMul;
+		next_permutation(perm.begin(), perm.end());
+	}
+	return detSum;
+}
 
 void Matrix::clear() {
 	for (int i = 1; i <= n; i++)

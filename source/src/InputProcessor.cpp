@@ -15,6 +15,7 @@ Input::Input() {
 	tempStr.push_back("add ");
 	tempStr.push_back("sub ");
 	tempStr.push_back("turn ");
+	tempStr.push_back("det ");
 }
 
 bool Input::cmpPre(string tempS, string cmpS) {

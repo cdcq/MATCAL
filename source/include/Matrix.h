@@ -3,8 +3,10 @@
 #define MATCAL_MATRIX_H
 
 #include"Fraction.h"
+#include<algorithm>
 #include<map>
 #include<string>
+#include<vector>
 
 using namespace std;
 
@@ -30,6 +32,8 @@ public:
 	void swapR(int row1, int row2);
 	void swapC(int column1, int column2);
 	void turn();
+	int invPair(vector<int> vec);
+	Fraction det();
 	
 	void clear();
 	void print();
