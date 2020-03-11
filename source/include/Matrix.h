@@ -29,6 +29,7 @@ public:
 
 	void swapR(int row1, int row2);
 	void swapC(int column1, int column2);
+	void turn();
 	
 	void clear();
 	void print();

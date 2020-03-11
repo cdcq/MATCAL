@@ -28,6 +28,9 @@ void Error::throwError(int errorInfo) {
 	if (errorInfo == -205) {
 		printf("矩阵无法相加/相减\n");
 	}
+	if (errorInfo == -206) {
+		printf("矩阵不是方阵\n");
+	}
 
 	if (errorInfo == -3) {
 		printf("参数不合法\n");

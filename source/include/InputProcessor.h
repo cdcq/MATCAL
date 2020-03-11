@@ -19,6 +19,7 @@ private:
 	string temp_mul;
 	string temp_add;
 	string temp_sub;
+	string temp_turn;
 public:
 	string inputS;
 

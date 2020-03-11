@@ -13,7 +13,6 @@ public:
 	Fraction(int _a, int _b);
 	Fraction(int _a);
 
-	void print();
 	int gcd(int num1, int num2);
 
 	friend Fraction operator+(Fraction num1, Fraction num2);
@@ -22,6 +21,9 @@ public:
 	friend Fraction operator/(Fraction num1, Fraction num2);
 	void operator+=(Fraction num1);
 
+	void print();
+	void print(int len);
+	int length();
 };
 
 extern Fraction fra_0;

@@ -7,15 +7,6 @@ int Fraction::gcd(int num1, int num2) {
 	return num2 ? gcd(num2, num1 % num2) : abs(num1); 
 }
 
-void Fraction::print() {
-	if (b == 1) {
-		printf("%d ", a);
-	}
-	else {
-		printf("%d/%d ", a, b);
-	}
-}
-
 Fraction::Fraction() {
 	a = 0;
 	b = 1;
@@ -54,5 +45,46 @@ void Fraction::operator+=(Fraction num1) {
 	Fraction num3(a * num1.b + b * num1.a, b * num1.b);
 	a = num3.a;
 	b = num3.b;
+}
+
+void Fraction::print() {
+	if (b == 1) {
+		printf("%d ", a);
+	}
+	else {
+		printf("%d/%d ", a, b);
+	}
+}
+void Fraction::print(int len) {
+	if (b == 1) {
+		printf("%*d ", len, a);
+	}
+	else {
+		int count = 0;
+		int temb = b;
+		for (; temb > 0; temb /= 10) {
+			count++;
+		}
+		printf("%*d/%d ", len - count - 1, a, b);
+	}
+}
+int Fraction::length() {
+	int count = 0;
+	int tema = a;
+	int temb = b;
+	if (tema < 0) {
+		count++;
+		tema = -tema;
+	}
+	for (; tema > 0; tema /= 10) {
+		count++;
+	}
+	if (temb != 1) {
+		count++;
+		for (; temb > 0; temb /= 10) {
+			count++;
+		}
+	}
+	return count;
 }
 

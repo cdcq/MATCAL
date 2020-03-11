@@ -14,6 +14,7 @@ Input::Input() {
 	temp_mul = "mul ";
 	temp_add = "add ";
 	temp_sub = "sub ";
+	temp_turn = "turn ";
 }
 
 bool Input::cmpPre(string tempS, string cmpS) {
@@ -58,6 +59,9 @@ int Input::inputAnalyse(string inputS) {
 	}
 	else if (cmpPre(inputS, temp_sub)) {
 		return 9;
+	}
+	else if (cmpPre(inputS, temp_turn)) {
+		return 10;
 	}
 
 	return -1;
