@@ -99,14 +99,14 @@ void Matrix::swapC(int column1, int column2) {
 	}
 }
 void Matrix::turn() {
-	if (n != m) {
-		throw - 206;
-	}
+	Matrix temMat(m, n);
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j < i; j++) {
-			swap(mat[i][j], mat[j][i]);
+		for (int j = 1; j <= m; j++) {
+			temMat.mat[j][i] = mat[i][j];
 		}
 	}
+	mat = temMat.mat;
+	swap(n, m);
 }
 
 void Matrix::clear() {

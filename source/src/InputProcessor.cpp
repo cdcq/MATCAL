@@ -4,17 +4,17 @@
 Input input;
 
 Input::Input() {
-	temp_help = "help";
-	temp_exit = "exit";
-	temp_mat = "mat ";
-	temp_print = "print ";
-	temp_inv = "inv ";
-	temp_swapr = "swapr ";
-	temp_swapc = "swapc ";
-	temp_mul = "mul ";
-	temp_add = "add ";
-	temp_sub = "sub ";
-	temp_turn = "turn ";
+	tempStr.push_back("exit");
+	tempStr.push_back("help");
+	tempStr.push_back("mat ");
+	tempStr.push_back("print ");
+	tempStr.push_back("inv ");
+	tempStr.push_back("swapr ");
+	tempStr.push_back("swapc ");
+	tempStr.push_back("mul ");
+	tempStr.push_back("add ");
+	tempStr.push_back("sub ");
+	tempStr.push_back("turn ");
 }
 
 bool Input::cmpPre(string tempS, string cmpS) {
@@ -30,38 +30,10 @@ bool Input::cmpPre(string tempS, string cmpS) {
 }
 
 int Input::inputAnalyse(string inputS) {
-	if (inputS == temp_exit) {
-		return 0;
-	}
-	else if (inputS == temp_help) {
-		return 1;
-	}
-	else if (cmpPre(inputS, temp_mat)) {
-		return 2;
-	}
-	else if (cmpPre(inputS, temp_print)) {
-		return 3;
-	}
-	else if (cmpPre(inputS, temp_inv)) {
-		return 4;
-	}
-	else if (cmpPre(inputS, temp_swapr)) {
-		return 5;
-	}
-	else if (cmpPre(inputS, temp_swapc)) {
-		return 6;
-	}
-	else if (cmpPre(inputS, temp_mul)) {
-		return 7;
-	}
-	else if (cmpPre(inputS, temp_add)) {
-		return 8;
-	}
-	else if (cmpPre(inputS, temp_sub)) {
-		return 9;
-	}
-	else if (cmpPre(inputS, temp_turn)) {
-		return 10;
+	for (unsigned int inputInfo = 0; inputInfo < tempStr.size(); inputInfo++) {
+		if (cmpPre(inputS, tempStr[inputInfo])) {
+			return inputInfo;
+		}
 	}
 
 	return -1;

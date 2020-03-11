@@ -19,6 +19,12 @@ public:
 
 	void init();
 	bool work();
+
+	void execInput(string inputS, int inputInfo);
+	void execPrint(string inputS, int inputInfo);
+	void execSwap(string inputS, int inputInfo);
+	void execOper(string inputS, int inputInfo);
+	void execTurn(string inputS, int inputInfo);
 };
 
 extern Main mainClass;

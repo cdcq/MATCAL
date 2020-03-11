@@ -4,24 +4,13 @@
 
 #include<iostream>
 #include<string>
+#include<vector>
 
 using namespace std;
 
 class Input {
-private:
-	string temp_help;
-	string temp_exit;
-	string temp_mat;
-	string temp_print;
-	string temp_inv;
-	string temp_swapr;
-	string temp_swapc;
-	string temp_mul;
-	string temp_add;
-	string temp_sub;
-	string temp_turn;
 public:
-	string inputS;
+	vector<string> tempStr;
 
 	Input();
 
