@@ -31,6 +31,9 @@ void Error::throwError(int errorInfo) {
 	if (errorInfo == -206) {
 		printf("矩阵不是方阵\n");
 	}
+	if (errorInfo == -207) {
+		printf("矩阵不可逆\n");
+	}
 
 	if (errorInfo == -3) {
 		printf("参数不合法\n");

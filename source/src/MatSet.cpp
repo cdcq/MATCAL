@@ -49,6 +49,7 @@ void MatSet::matInput(string matName) {
 				inputNum.a *= minusFlag;
 				temCol++;
 				temMat.mat[temMat.n][temCol] = inputNum;
+				minusFlag = 1;
 			}
 		}
 		if (temMat.m == 0) {

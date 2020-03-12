@@ -55,12 +55,7 @@ bool Main::work() {
 		execPrint(inputS, inputInfo);
 	}
 	else if (inputInfo == 4) {
-		string matName = inputS;
-		if (matSet.set.count(matName) == 1) {
-		}
-		else {
-			throw - 200;
-		}
+		execInv(inputS, inputInfo);
 	}
 	else if (inputInfo == 5 || inputInfo == 6) {
 		execSwap(inputS, inputInfo);
@@ -185,5 +180,19 @@ void Main::execDet(string inputS, int inputInfo) {
 	}
 	matSet.set[matName].det().print();
 	printf("\n");
+}
+
+void Main::execInv(string inputS, int inputInfo) {
+	int temParSet[3] = { 0, -1, 0 };
+	if (!lexAna.RecPar(inputS, temParSet, 3)) {
+		throw - 3;
+	}
+
+	unsigned int pos = 0;
+	string matName = strProc.getStr(inputS, pos);
+	if (matSet.set.count(matName) != 1) {
+		throw - 200;
+	}
+	matSet.set[matName].inv().print();
 }
 

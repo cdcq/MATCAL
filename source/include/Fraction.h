@@ -19,6 +19,14 @@ public:
 	friend Fraction operator-(Fraction num1, Fraction num2);
 	friend Fraction operator*(Fraction num1, Fraction num2);
 	friend Fraction operator/(Fraction num1, Fraction num2);
+	friend Fraction operator+(int num1, Fraction num2);
+	friend Fraction operator-(int num1, Fraction num2);
+	friend Fraction operator*(int num1, Fraction num2);
+	friend Fraction operator/(int num1, Fraction num2);
+	friend Fraction operator+(Fraction num1, int num2);
+	friend Fraction operator-(Fraction num1, int num2);
+	friend Fraction operator*(Fraction num1, int num2);
+	friend Fraction operator/(Fraction num1, int num2);
 	void operator+=(Fraction num1);
 
 	void print();

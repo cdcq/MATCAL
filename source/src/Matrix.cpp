@@ -98,6 +98,16 @@ void Matrix::swapC(int column1, int column2) {
 		swap(mat[i][column1], mat[i][column2]);
 	}
 }
+void Matrix::mulR(int row, Fraction num) {
+	for (int i = 1; i <= m; i++) {
+		mat[row][i] = mat[row][i] * num;
+	}
+}
+void Matrix::addR(int row1, int row2, Fraction num) {
+	for (int i = 1; i <= m; i++) {
+		mat[row2][i] = mat[row2][i] + mat[row1][i] * num;
+	}
+}
 void Matrix::turn() {
 	Matrix temMat(m, n);
 	for (int i = 1; i <= n; i++) {
@@ -142,6 +152,53 @@ Fraction Matrix::det() {
 		next_permutation(perm.begin(), perm.end());
 	}
 	return detSum;
+}
+Matrix Matrix::inv() {
+	if (det().a == 0) {
+		throw - 207;
+	}
+	Matrix temMat(n, m * 2);
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= m; j++) {
+			temMat.mat[i][j] = mat[i][j];
+		}
+	}
+	for (int i = 1; i <= n; i++) {
+		temMat.mat[i][m + i] = 1;
+	}
+	for (int i = 1; i <= n; i++) {
+		if (temMat.mat[i][i].a == 0) {
+			int temR = i;
+			for (int j = i + 1; j <= n; j++) {
+				if (temMat.mat[j][i].a != 0) {
+					temR = j;
+					break;
+				}
+			}
+			if (temR == i) {
+				throw - 207;
+			}
+			temMat.swapR(i, temR);
+		}
+		Fraction temFra = temMat.mat[i][i];
+		swap(temFra.a, temFra.b);
+		temMat.mulR(i, temFra);
+		for (int j = i + 1; j <= n; j++) {
+			temMat.addR(i, j, -1 * temMat.mat[j][i]);
+		}
+	}
+	for (int i = n; i >= 1; i--) {
+		for (int j = i - 1; j >= 1; j--) {
+			temMat.addR(i, j, -1 * temMat.mat[j][i]);
+		}
+	}
+	Matrix ansMat(n, m);
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= m; j++) {
+			ansMat.mat[i][j] = temMat.mat[i][m + j];
+		}
+	}
+	return ansMat;
 }
 
 void Matrix::clear() {

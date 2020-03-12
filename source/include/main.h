@@ -26,6 +26,7 @@ public:
 	void execOper(string inputS, int inputInfo);
 	void execTurn(string inputS, int inputInfo);
 	void execDet(string inputS, int inputInfo);
+	void execInv(string inputS, int inputInfo);
 };
 
 extern Main mainClass;

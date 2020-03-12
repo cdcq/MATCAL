@@ -38,8 +38,39 @@ Fraction operator*(Fraction num1, Fraction num2) {
 	return num3;
 }
 Fraction operator/(Fraction num1, Fraction num2) {
+	if (num2.a == 0) {
+		throw 0;
+	}
 	Fraction num3(num1.a * num2.b, num1.b * num2.a);
 	return num3;
+}
+Fraction operator+(int num1, Fraction num2) {
+	Fraction num3(num1, 1);
+	return num3 + num2;
+}
+Fraction operator-(int num1, Fraction num2){
+	Fraction num3(num1, 1);
+	return num3 - num2;
+}
+Fraction operator*(int num1, Fraction num2){
+	Fraction num3(num1, 1);
+	return num3 * num2;
+}
+Fraction operator/(int num1, Fraction num2){
+	Fraction num3(num1, 1);
+	return num3 / num2;
+}
+Fraction operator+(Fraction num1, int num2){
+	return num2 + num1;
+}
+Fraction operator-(Fraction num1, int num2){
+	return num2 - num1;
+}
+Fraction operator*(Fraction num1, int num2){
+	return num2 * num1;
+}
+Fraction operator/(Fraction num1, int num2){
+	return num2 / num1;
 }
 void Fraction::operator+=(Fraction num1) {
 	Fraction num3(a * num1.b + b * num1.a, b * num1.b);

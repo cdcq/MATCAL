@@ -31,9 +31,12 @@ public:
 
 	void swapR(int row1, int row2);
 	void swapC(int column1, int column2);
+	void mulR(int row, Fraction num);
+	void addR(int row1, int row2, Fraction num);
 	void turn();
 	int invPair(vector<int> vec);
 	Fraction det();
+	Matrix inv();
 	
 	void clear();
 	void print();
