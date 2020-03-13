@@ -37,6 +37,7 @@ public:
 	int invPair(vector<int> vec);
 	Fraction det();
 	Matrix inv();
+	int rank();
 	
 	void clear();
 	void print();

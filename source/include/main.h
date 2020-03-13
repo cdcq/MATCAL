@@ -27,6 +27,7 @@ public:
 	void execTurn(string inputS, int inputInfo);
 	void execDet(string inputS, int inputInfo);
 	void execInv(string inputS, int inputInfo);
+	void execRank(string inputS, int inputInfo);
 };
 
 extern Main mainClass;

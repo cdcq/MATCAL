@@ -200,6 +200,48 @@ Matrix Matrix::inv() {
 	}
 	return ansMat;
 }
+int Matrix::rank() {
+	Matrix temMat(n, m);
+	temMat.mat = mat;
+	for (int i = 1; i <= n; i++) {
+		if (temMat.mat[i][i].a == 0) {
+			int temR = 0;
+			for (int j = i + 1; j <= n; j++) {
+				if (temMat.mat[j][i].a != 0) {
+					temR = j;
+					break;
+				}
+			}
+			if (temR == 0) {
+				continue;
+			}
+			temMat.swapR(i, temR);
+		}
+		Fraction temFra = temMat.mat[i][i];
+		swap(temFra.a, temFra.b);
+		temMat.mulR(i, temFra);
+		for (int j = i + 1; j <= n; j++) {
+			temMat.addR(i, j, -1 * temMat.mat[j][i]);
+		}
+	}
+	int count = 0;
+	for (int i = n; i >= 1; i--) {
+		bool temMark = true;
+		for (int j = 1; j <= m; j++) {
+			if (temMat.mat[i][j].a != 0) {
+				temMark = false;
+				break;
+			}
+		}
+		if (!temMark) {
+			break;
+		}
+		else {
+			count++;
+		}
+	}
+	return n - count;
+}
 
 void Matrix::clear() {
 	for (int i = 1; i <= n; i++)
