@@ -28,6 +28,7 @@ public:
 	void execDet(string inputS, int inputInfo);
 	void execInv(string inputS, int inputInfo);
 	void execRank(string inputS, int inputInfo);
+	void execTriu(string inputS, int inputInfo);
 };
 
 extern Main mainClass;

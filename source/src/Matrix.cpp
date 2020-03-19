@@ -200,7 +200,7 @@ Matrix Matrix::inv() {
 	}
 	return ansMat;
 }
-int Matrix::rank() {
+Matrix Matrix::triu() {
 	Matrix temMat(n, m);
 	temMat.mat = mat;
 	for (int i = 1; i <= n; i++) {
@@ -219,11 +219,17 @@ int Matrix::rank() {
 		}
 		Fraction temFra = temMat.mat[i][i];
 		swap(temFra.a, temFra.b);
-		temMat.mulR(i, temFra);
 		for (int j = i + 1; j <= n; j++) {
-			temMat.addR(i, j, -1 * temMat.mat[j][i]);
+			temMat.addR(i, j, -1 * temMat.mat[j][i] * temFra);
 		}
 	}
+	return temMat;
+}
+int Matrix::rank() {
+	Matrix temMat(n, m);
+	temMat.mat = mat;
+	temMat = temMat.triu();
+
 	int count = 0;
 	for (int i = n; i >= 1; i--) {
 		bool temMark = true;

@@ -72,6 +72,9 @@ bool Main::work() {
 	else if (inputInfo == 12) {
 		execRank(inputS, inputInfo);
 	}
+	else if (inputInfo == 13) {
+		execTriu(inputS, inputInfo);
+	}
 	else {
 		throw - 1;
 	}
@@ -211,5 +214,19 @@ void Main::execRank(string inputS, int inputInfo) {
 		throw - 200;
 	}
 	printf("%d\n", matSet.set[matName].rank());
+}
+
+void Main::execTriu(string inputS, int inputInfo) {
+	int temParSet[3] = { 0, -1, 0 };
+	if (!lexAna.RecPar(inputS, temParSet, 3)) {
+		throw - 3;
+	}
+
+	unsigned int pos = 0;
+	string matName = strProc.getStr(inputS, pos);
+	if (matSet.set.count(matName) != 1) {
+		throw - 200;
+	}
+	matSet.set[matName].triu().print();
 }
 
