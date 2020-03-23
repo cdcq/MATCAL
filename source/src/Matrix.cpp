@@ -200,7 +200,7 @@ Matrix Matrix::inv() {
 	}
 	return ansMat;
 }
-Matrix Matrix::triu() {
+Matrix Matrix::ref() {
 	Matrix temMat(n, m);
 	temMat.mat = mat;
 	for (int i = 1; i <= n; i++) {
@@ -228,7 +228,7 @@ Matrix Matrix::triu() {
 int Matrix::rank() {
 	Matrix temMat(n, m);
 	temMat.mat = mat;
-	temMat = temMat.triu();
+	temMat = temMat.ref();
 
 	int count = 0;
 	for (int i = n; i >= 1; i--) {

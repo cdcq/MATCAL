@@ -73,7 +73,7 @@ bool Main::work() {
 		execRank(inputS, inputInfo);
 	}
 	else if (inputInfo == 13) {
-		execTriu(inputS, inputInfo);
+		execRef(inputS, inputInfo);
 	}
 	else {
 		throw - 1;
@@ -128,16 +128,25 @@ void Main::execSwap(string inputS, int inputInfo) {
 
 void Main::execOper(string inputS, int inputInfo) {
 	int temParSet[7] = { 0, 1, 0, 1, 0, -1, 0 };
+	string matName1;
+	string matName2;
+	string matName3;
+	unsigned pos = 0;
 	if (!lexAna.RecPar(inputS, temParSet, 7)) {
-		throw - 3;
+		int temParSet2[5] = { 0, 1, 0, -1 , 0 };
+		if (!lexAna.RecPar(inputS, temParSet2, 5)) {
+			throw - 3;
+		}
+		matName2 = strProc.getStr(inputS, pos);
+		matName3 = strProc.getStr(inputS, pos);
+	}
+	else {
+		matName1 = strProc.getStr(inputS, pos);
+		matName2 = strProc.getStr(inputS, pos);
+		matName3 = strProc.getStr(inputS, pos);
 	}
 
-	unsigned pos = 0;
-	string matName1 = strProc.getStr(inputS, pos);
-	string matName2 = strProc.getStr(inputS, pos);
-	string matName3 = strProc.getStr(inputS, pos);
-
-	if (matSet.set.count(matName1) != 1) {
+	if (matName1.length() > 0 && matSet.set.count(matName1) != 1) {
 		Matrix temMat;
 		matSet.set[matName1] = temMat;
 	}
@@ -148,14 +157,21 @@ void Main::execOper(string inputS, int inputInfo) {
 		throw - 200;
 	}
 
+	Matrix temMat;
 	if (inputInfo == 7) {
-		matSet.set[matName1] = matSet.set[matName2] * matSet.set[matName3];
+		temMat = matSet.set[matName2] * matSet.set[matName3];
 	}
 	else if (inputInfo == 8) {
-		matSet.set[matName1] = matSet.set[matName2] + matSet.set[matName3];
+		temMat = matSet.set[matName2] + matSet.set[matName3];
 	}
 	else if (inputInfo == 9) {
-		matSet.set[matName1] = matSet.set[matName2] - matSet.set[matName3];
+		temMat = matSet.set[matName2] - matSet.set[matName3];
+	}
+	if (matName1.length() == 0) {
+		temMat.print();
+	}
+	else {
+		matSet.set[matName1] = temMat;
 	}
 }
 
@@ -189,17 +205,37 @@ void Main::execDet(string inputS, int inputInfo) {
 }
 
 void Main::execInv(string inputS, int inputInfo) {
-	int temParSet[3] = { 0, -1, 0 };
-	if (!lexAna.RecPar(inputS, temParSet, 3)) {
-		throw - 3;
+	int temParSet[5] = { 0, 1, 0, -1, 0 };
+	string matName1;
+	string matName2;
+	unsigned int pos = 0;
+	if (!lexAna.RecPar(inputS, temParSet, 5)) {
+		int temParSet2[3] = { 0, -1, 0 };
+		if (!lexAna.RecPar(inputS, temParSet2, 3)) {
+			throw - 3;
+		}
+		matName2 = strProc.getStr(inputS, pos);
+	}
+	else {
+		matName1 = strProc.getStr(inputS, pos);
+		matName2 = strProc.getStr(inputS, pos);
 	}
 
-	unsigned int pos = 0;
-	string matName = strProc.getStr(inputS, pos);
-	if (matSet.set.count(matName) != 1) {
+	if (matName1.length() > 0 && matSet.set.count(matName1) != 1) {
+		Matrix temMat;
+		matSet.set[matName1] = temMat;
+	}
+	if (matSet.set.count(matName2) != 1) {
 		throw - 200;
 	}
-	matSet.set[matName].inv().print();
+
+	if (matName1.length() == 0) {
+		matSet.set[matName2].inv().print();
+	}
+	else {
+		matSet.set[matName1] = matSet.set[matName2].inv();
+	}
+
 }
 
 void Main::execRank(string inputS, int inputInfo) {
@@ -216,7 +252,7 @@ void Main::execRank(string inputS, int inputInfo) {
 	printf("%d\n", matSet.set[matName].rank());
 }
 
-void Main::execTriu(string inputS, int inputInfo) {
+void Main::execRef(string inputS, int inputInfo) {
 	int temParSet[3] = { 0, -1, 0 };
 	if (!lexAna.RecPar(inputS, temParSet, 3)) {
 		throw - 3;
@@ -227,6 +263,6 @@ void Main::execTriu(string inputS, int inputInfo) {
 	if (matSet.set.count(matName) != 1) {
 		throw - 200;
 	}
-	matSet.set[matName].triu().print();
+	matSet.set[matName].ref().print();
 }
 
