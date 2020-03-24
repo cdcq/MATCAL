@@ -47,6 +47,7 @@ bool Main::work() {
 	else if (inputInfo == 1) {
 		printf("详细的使用方法请见《使用文档》\n");
 		printf("（还没想好怎么写help = =b）\n");
+		printf("文档下载地址：https:\/\/cdcq.coding.net\/s\/0f99a33c-5978-4fc7-b8ea-254ec6e1a731\n");
 	}
 	else if (inputInfo == 2) {
 		execInput(inputS, inputInfo);
