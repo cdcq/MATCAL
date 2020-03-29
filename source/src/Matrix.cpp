@@ -108,15 +108,14 @@ void Matrix::addR(int row1, int row2, Fraction num) {
 		mat[row2][i] = mat[row2][i] + mat[row1][i] * num;
 	}
 }
-void Matrix::turn() {
+Matrix Matrix::turn() {
 	Matrix temMat(m, n);
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= m; j++) {
 			temMat.mat[j][i] = mat[i][j];
 		}
 	}
-	mat = temMat.mat;
-	swap(n, m);
+	return temMat;
 }
 int Matrix::invPair(vector<int> vec) {
 	int count = 0;

@@ -177,17 +177,37 @@ void Main::execOper(string inputS, int inputInfo) {
 }
 
 void Main::execTurn(string inputS, int inputInfo) {
-	int temParSet[3] = { 0, -1, 0 };
-	if (!lexAna.RecPar(inputS, temParSet, 3)) {
-		throw - 3;
+	int temParSet[5] = { 0, 1, 0, -1, 0 };
+	string matName1;
+	string matName2;
+	unsigned int pos = 0;
+	if (!lexAna.RecPar(inputS, temParSet, 5)) {
+		int temParSet2[3] = { 0, -1, 0 };
+		if (!lexAna.RecPar(inputS, temParSet2, 3)) {
+			throw - 3;
+		}
+		matName2 = strProc.getStr(inputS, pos);
+	}
+	else {
+		matName1 = strProc.getStr(inputS, pos);
+		matName2 = strProc.getStr(inputS, pos);
 	}
 
-	unsigned int pos = 0;
-	string matName = strProc.getStr(inputS, pos);
-	if (matSet.set.count(matName) != 1) {
+	if (matName1.length() > 0 && matSet.set.count(matName1) != 1) {
+		Matrix temMat;
+		matSet.set[matName1] = temMat;
+	}
+	if (matSet.set.count(matName2) != 1) {
 		throw - 200;
 	}
-	matSet.set[matName].turn();
+
+	if (matName1.length() == 0) {
+		matSet.set[matName2].turn().print();
+	}
+	else {
+		matSet.set[matName1] = matSet.set[matName2].turn();
+	}
+
 }
 
 void Main::execDet(string inputS, int inputInfo) {

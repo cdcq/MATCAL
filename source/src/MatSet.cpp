@@ -11,12 +11,12 @@ void MatSet::matInput(string matName) {
 			getline(cin, inputS);
 			if (inputS[0] == 'Y')  inputS[0] = 'y';
 			if (inputS[0] == 'N')  inputS[0] = 'n';
-		} while (inputS.length() == 0 && (inputS[0] == 'y' || inputS[0] == 'n'));
+		} while (inputS.length() == 0 || (inputS[0] != 'y' && inputS[0] != 'n'));
 		if (inputS[0] == 'n') {
 			return;
 		}
 		else {
-			matSet.set.erase(matName);
+			//matSet.set.erase(matName);
 		}
 	}
 	Matrix temMat;
