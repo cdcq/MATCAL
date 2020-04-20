@@ -18,6 +18,7 @@ Input::Input() {
 	tempStr.push_back("det ");
 	tempStr.push_back("rank ");
 	tempStr.push_back("ref ");
+	tempStr.push_back("clr");
 }
 
 bool Input::cmpPre(string tempS, string cmpS) {

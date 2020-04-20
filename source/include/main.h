@@ -29,6 +29,7 @@ public:
 	void execInv(string inputS, int inputInfo);
 	void execRank(string inputS, int inputInfo);
 	void execRef(string inputS, int inputInfo);
+	void execClr(string inputS, int inputInfo);
 };
 
 extern Main mainClass;

@@ -76,6 +76,9 @@ bool Main::work() {
 	else if (inputInfo == 13) {
 		execRef(inputS, inputInfo);
 	}
+	else if (inputInfo == 14) {
+		execClr(inputS, inputInfo);
+	}
 	else {
 		throw - 1;
 	}
@@ -285,5 +288,20 @@ void Main::execRef(string inputS, int inputInfo) {
 		throw - 200;
 	}
 	matSet.set[matName].ref().print();
+}
+
+void Main::execClr(string inputS, int inputInfo) {
+	do {
+		printf("警告：危险操作！是否清除所有矩阵？\n（Y/N）");
+		getline(cin, inputS);
+		if (inputS[0] == 'Y')  inputS[0] = 'y';
+		if (inputS[0] == 'N')  inputS[0] = 'n';
+	} while (inputS.length() == 0 || (inputS[0] != 'y' && inputS[0] != 'n'));
+	if (inputS[0] == 'n') {
+		return;
+	}
+	else {
+		matSet.set.clear();
+	}
 }
 
