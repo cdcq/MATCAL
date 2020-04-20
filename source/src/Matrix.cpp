@@ -73,7 +73,7 @@ Matrix operator-(Matrix A, Matrix B) {
 	if (A.n != B.n || A.m != B.m) {
 		throw - 205;
 	}
-	Matrix C;
+	Matrix C(A.n, A.m);
 	for (int i = 1; i <= A.n; i++) {
 		for (int j = 1; j <= A.m; j++) {
 			C.mat[i][j] = A.mat[i][j] - B.mat[i][j];
