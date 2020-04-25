@@ -1,2 +1,12 @@
-﻿  Matrix.cpp
+﻿  ErrorProcessor.cpp
+  Fraction.cpp
+  InputProcessor.cpp
+  LaunchInfo.cpp
+  LexicalAnalyzer.cpp
+  main.cpp
+E:\Projects\MATCAL\source\src\main.cpp(50,10): warning C4129: “/”: 不可识别的字符转义序列
+  Matrix.cpp
+  MatSet.cpp
+  StringProcessor.cpp
+  正在生成代码...
   MATCAL.vcxproj -> E:\Projects\MATCAL\source\Debug\MATCAL.exe

@@ -7,7 +7,7 @@ Input::Input() {
 	tempStr.push_back("exit");
 	tempStr.push_back("help");
 	tempStr.push_back("mat ");
-	tempStr.push_back("print ");
+	tempStr.push_back("show ");
 	tempStr.push_back("inv ");
 	tempStr.push_back("swapr ");
 	tempStr.push_back("swapc ");

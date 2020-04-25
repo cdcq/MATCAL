@@ -1,0 +1,2 @@
+E:\Projects\MATCAL\source\Debug\MATCAL.exe
+E:\Projects\MATCAL\source\Debug\MATCAL.pdb
